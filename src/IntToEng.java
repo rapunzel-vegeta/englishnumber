@@ -6,10 +6,13 @@ public class IntToEng {
         int input = sc.nextInt();
         if(input>10&&input<20){
         	System.out.println(eleven(input));
-        }else if(input>=10&&input%10==0){
+        }else if(input>=10&&input<100&&input%10==0){
         	System.out.println(kiriban(input));
-        }else if(input>20&&input%10!=0){
+        }else if(input>20&&input<100&&input%10!=0){
         	System.out.println(kiriban(input)+"-"+translateEng(input));
+        }else if(input>=100&&input<=1000){
+        	System.out.println(hundred(input)+"-"+kiriban(input)+"-"+translateEng(input));
+        	
         }else{
         System.out.println(translateEng(input));
         }
@@ -64,31 +67,67 @@ public class IntToEng {
 		return"";
 	}
 	static String kiriban(int n){
-		int n2= n-n%10;
 		final String[] eNum2 = {"ten", "twenty", "thirty", "forty", "fifty",
 				"sixty", "seventy", "eighty", "ninety", "one-hundred",
 				"ten"};
-	if(n2==10){
+		int n2=0;
+		if(n<100){
+			n2= n%10;
+		}else{
+			n2=n%100;
+		
+		
+	if(n2==1){
 		return eNum2[0];
-	}else if(n2==20){
+	}else if(n2==2){
 			return eNum2[1];
-	}else if(n2==30){
+	}else if(n2==3){
 		return eNum2[2];
-	}else if(n2==40){
+	}else if(n2==4){
 		return eNum2[3];
-	}else if(n2==50){
+	}else if(n2==5){
 		return eNum2[4];
-	}else if(n2==60){
+	}else if(n2==6){
 		return eNum2[5];
-	}else if(n2==70){
+	}else if(n2==7){
 		return eNum2[6];
-	}else if(n2==80){
+	}else if(n2==8){
 		return eNum2[7];
-	}else if(n2==90){
+	}else if(n2==9){
 		return eNum2[8];
-	}else if(n2==100){
+	}else if(n2==10){
 		return eNum2[9];
 	}
+		}
 	return "";		
+	}
+	static String hundred(int n){
+		final String[] eNum3 = {"one-hundred", "two-hundred", "three-hundred", "four-hundred", "five-hundred",
+				"six-hundred", "seven-hundred", "eight-hundred", "nine-hundred", "one-thoudsan",
+				"ten"};
+		int n3=n/100;
+		if(n3==1){
+			return eNum3[0];
+		}else if(n3==2){
+			return eNum3[1];
+		}else if(n3==3){
+			return eNum3[2];
+		}else if(n3==4){
+			return eNum3[3];
+		}else if(n3==5){
+			return eNum3[4];
+		}else if(n3==6){
+			return eNum3[5];
+		}else if(n3==7){
+			return eNum3[6];
+		}else if(n3==8){
+			return eNum3[7];
+		}else if(n3==9){
+			return eNum3[8];
+		}else if(n3==10){
+			return eNum3[9];
+		}
+		
+		return"";
 	}
 }
