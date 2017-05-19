@@ -2,25 +2,22 @@ import java.util.Scanner;
 public class IntToEng {
 	
 	public static void main(String[] args) {
-		
-
         Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
         if(input>10&&input<20){
         	System.out.println(eleven(input));
         }else if(input>=10&&input%10==0){
         	System.out.println(kiriban(input));
-        	
+        }else if(input>20&&input%10!=0){
+        	System.out.println(kiriban(input)+"-"+translateEng(input));
         }else{
         System.out.println(translateEng(input));
         }
 	}
 	static String translateEng(int n) {
 		int num = n%10;
-		//int num=n;
 		final String[] eNum1 = {"zero", "one", "two", "three", "four",
-				"five", "six", "seven", "eight", "nine",
-				};
+				"five", "six", "seven", "eight", "nine"};
 	 if(num==1){
 		return eNum1[1];
 	}else if(num==2){
@@ -42,29 +39,6 @@ public class IntToEng {
 	}else if(num==0){
 		return eNum1[0];
 	}
-		/*if(n==0){
-			return "zero";
-	    }else if(n==1){		
-			return "one";
-		}else if(n==2){
-			return "two";
-		}else if(n==3){
-			return "three";
-		}else if(n==4){
-			return "four";
-		}else if(n==5){
-			return "five";
-		}else if(n==6){
-			return "six";		
-		}else if(n==7){
-			return "seven";
-		}else if(n==8){
-			return "eight";
-		}else if(n==9){
-			return "nine";
-		}else if(n==10){
-			return "ten";
-		}*/
         return "";
 	}
 	static String eleven(int n){
@@ -90,30 +64,30 @@ public class IntToEng {
 		return"";
 	}
 	static String kiriban(int n){
-		
-		final String[] eNum1 = {"ten", "twenty", "thirty", "forty", "fifty",
+		int n2= n-n%10;
+		final String[] eNum2 = {"ten", "twenty", "thirty", "forty", "fifty",
 				"sixty", "seventy", "eighty", "ninety", "one-hundred",
 				"ten"};
-	if(n==10){
-		return eNum1[0];
-	}else if(n==20){
-			return eNum1[1];
-	}else if(n==30){
-		return eNum1[2];
-	}else if(n==40){
-		return eNum1[3];
-	}else if(n==50){
-		return eNum1[4];
-	}else if(n==60){
-		return eNum1[5];
-	}else if(n==70){
-		return eNum1[6];
-	}else if(n==80){
-		return eNum1[7];
-	}else if(n==90){
-		return eNum1[8];
-	}else if(n==100){
-		return eNum1[9];
+	if(n2==10){
+		return eNum2[0];
+	}else if(n2==20){
+			return eNum2[1];
+	}else if(n2==30){
+		return eNum2[2];
+	}else if(n2==40){
+		return eNum2[3];
+	}else if(n2==50){
+		return eNum2[4];
+	}else if(n2==60){
+		return eNum2[5];
+	}else if(n2==70){
+		return eNum2[6];
+	}else if(n2==80){
+		return eNum2[7];
+	}else if(n2==90){
+		return eNum2[8];
+	}else if(n2==100){
+		return eNum2[9];
 	}
 	return "";		
 	}
