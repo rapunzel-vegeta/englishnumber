@@ -1,39 +1,45 @@
 import java.util.Scanner;
 public class IntToEng {
+	
 	public static void main(String[] args) {
+		
 
         Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
-
+        if(input>10&&input<20){
+        	System.out.println(eleven(input));
+        }else if(input>=10&&input%10==0){
+        	System.out.println(kiriban(input));
+        	
+        }else{
         System.out.println(translateEng(input));
+        }
 	}
 	static String translateEng(int n) {
-		//int num = n/10;
-		int num=n;
+		int num = n%10;
+		//int num=n;
 		final String[] eNum1 = {"zero", "one", "two", "three", "four",
 				"five", "six", "seven", "eight", "nine",
-				"ten"};
-	if(n==10){
-		return eNum1[10];
-	}else if(num%10==1){
-			return eNum1[1];
-	}else if(num%10==2){
+				};
+	 if(num==1){
+		return eNum1[1];
+	}else if(num==2){
 		return eNum1[2];
-	}else if(num%10==3){
+	}else if(num==3){
 		return eNum1[3];
-	}else if(num%10==4){
+	}else if(num==4){
 		return eNum1[4];
-	}else if(num%10==5){
+	}else if(num==5){
 		return eNum1[5];
-	}else if(num%10==6){
+	}else if(num==6){
 		return eNum1[6];
-	}else if(num%10==7){
+	}else if(num==7){
 		return eNum1[7];
-	}else if(num%10==8){
+	}else if(num==8){
 		return eNum1[8];
-	}else if(num%10==9){
+	}else if(num==9){
 		return eNum1[9];
-	}else if(num%10==0){
+	}else if(num==0){
 		return eNum1[0];
 	}
 		/*if(n==0){
@@ -60,5 +66,55 @@ public class IntToEng {
 			return "ten";
 		}*/
         return "";
+	}
+	static String eleven(int n){
+		if(n==11){
+			return "eleven";
+		}else if(n==12){
+			return "twelve";
+		}else if(n==13){
+			return "thirteen";
+		}else if(n==14){
+			return "forteen";
+		}else if(n==15){
+			return "fifteen";
+		}else if(n==16){
+			return "sixteen";
+		}else if(n==17){
+			return "seventeen";
+		}else if(n==18){
+			return "eighteen";
+		}else if(n==19){
+			return "nineteen";
+		}
+		return"";
+	}
+	static String kiriban(int n){
+		
+		final String[] eNum1 = {"ten", "twenty", "thirty", "forty", "fifty",
+				"sixty", "seventy", "eighty", "ninety", "one-hundred",
+				"ten"};
+	if(n==10){
+		return eNum1[0];
+	}else if(n==20){
+			return eNum1[1];
+	}else if(n==30){
+		return eNum1[2];
+	}else if(n==40){
+		return eNum1[3];
+	}else if(n==50){
+		return eNum1[4];
+	}else if(n==60){
+		return eNum1[5];
+	}else if(n==70){
+		return eNum1[6];
+	}else if(n==80){
+		return eNum1[7];
+	}else if(n==90){
+		return eNum1[8];
+	}else if(n==100){
+		return eNum1[9];
+	}
+	return "";		
 	}
 }
