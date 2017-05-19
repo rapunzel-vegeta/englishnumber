@@ -4,15 +4,17 @@ public class IntToEng {
 	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
+        int x = input%100;
         if(input>10&&input<20){
         	System.out.println(eleven(input));
         }else if(input>=10&&input<100&&input%10==0){
         	System.out.println(kiriban(input));
         }else if(input>20&&input<100&&input%10!=0){
         	System.out.println(kiriban(input)+"-"+translateEng(input));
+        }else if(input>=100&&input<=1000&&x<20&&x>10){
+        	System.out.println(hundred(input)+"-"+eleven(input));
         }else if(input>=100&&input<=1000){
         	System.out.println(hundred(input)+"-"+kiriban(input)+"-"+translateEng(input));
-        	
         }else{
         System.out.println(translateEng(input));
         }
@@ -45,23 +47,29 @@ public class IntToEng {
         return "";
 	}
 	static String eleven(int n){
-		if(n==11){
+		int n4=0;
+		if(n<100){
+			n4=n;
+		}else {
+			n4=n%100;
+		}
+		if(n4==11){
 			return "eleven";
-		}else if(n==12){
+		}else if(n4==12){
 			return "twelve";
-		}else if(n==13){
+		}else if(n4==13){
 			return "thirteen";
-		}else if(n==14){
+		}else if(n4==14){
 			return "forteen";
-		}else if(n==15){
+		}else if(n4==15){
 			return "fifteen";
-		}else if(n==16){
+		}else if(n4==16){
 			return "sixteen";
-		}else if(n==17){
+		}else if(n4==17){
 			return "seventeen";
-		}else if(n==18){
+		}else if(n4==18){
 			return "eighteen";
-		}else if(n==19){
+		}else if(n4==19){
 			return "nineteen";
 		}
 		return"";
@@ -72,33 +80,31 @@ public class IntToEng {
 				"ten"};
 		int n2=0;
 		if(n<100){
-			n2= n%10;
+			n2= n;
 		}else{
-			n2=n%100;
-		
-		
-	if(n2==1){
-		return eNum2[0];
-	}else if(n2==2){
-			return eNum2[1];
-	}else if(n2==3){
-		return eNum2[2];
-	}else if(n2==4){
-		return eNum2[3];
-	}else if(n2==5){
-		return eNum2[4];
-	}else if(n2==6){
-		return eNum2[5];
-	}else if(n2==7){
-		return eNum2[6];
-	}else if(n2==8){
-		return eNum2[7];
-	}else if(n2==9){
-		return eNum2[8];
-	}else if(n2==10){
-		return eNum2[9];
-	}
+			n2=(n-n%10)%100;
 		}
+		
+	if(n2==10){
+		return eNum2[0];
+	}else if(n2==20){
+			return eNum2[1];
+	}else if(n2==30){
+		return eNum2[2];
+	}else if(n2==40){
+		return eNum2[3];
+	}else if(n2==50){
+		return eNum2[4];
+	}else if(n2==60){
+		return eNum2[5];
+	}else if(n2==70){
+		return eNum2[6];
+	}else if(n2==80){
+		return eNum2[7];
+	}else if(n2==90){
+		return eNum2[8];
+	}
+		
 	return "";		
 	}
 	static String hundred(int n){
@@ -126,8 +132,7 @@ public class IntToEng {
 			return eNum3[8];
 		}else if(n3==10){
 			return eNum3[9];
-		}
-		
+		}	
 		return"";
 	}
 }
