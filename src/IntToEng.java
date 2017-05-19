@@ -8,8 +8,37 @@ public class IntToEng {
         System.out.println(translateEng(input));
 	}
 	static String translateEng(int n) {
-		
-		if(n==1){
+		//int num = n/10;
+		int num=n;
+		final String[] eNum1 = {"zero", "one", "two", "three", "four",
+				"five", "six", "seven", "eight", "nine",
+				"ten"};
+	if(n==10){
+		return eNum1[10];
+	}else if(num%10==1){
+			return eNum1[1];
+	}else if(num%10==2){
+		return eNum1[2];
+	}else if(num%10==3){
+		return eNum1[3];
+	}else if(num%10==4){
+		return eNum1[4];
+	}else if(num%10==5){
+		return eNum1[5];
+	}else if(num%10==6){
+		return eNum1[6];
+	}else if(num%10==7){
+		return eNum1[7];
+	}else if(num%10==8){
+		return eNum1[8];
+	}else if(num%10==9){
+		return eNum1[9];
+	}else if(num%10==0){
+		return eNum1[0];
+	}
+		/*if(n==0){
+			return "zero";
+	    }else if(n==1){		
 			return "one";
 		}else if(n==2){
 			return "two";
@@ -29,7 +58,7 @@ public class IntToEng {
 			return "nine";
 		}else if(n==10){
 			return "ten";
-		}
+		}*/
         return "";
 	}
 }
